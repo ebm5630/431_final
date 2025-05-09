@@ -134,13 +134,13 @@ std::string YourProposalFunction(
         if (optimizeforEDP) {
             // EDP: fastest fetch, smallest width, in-order, perfect branch pred
             configuration[0] = 0;
-            configuration[1] = 0; // 1, 0 make fetching faster or so i think
+            configuration[1] = 1; // 1
             configuration[2] = 0;
             configuration[17] = 0;
         } else if (optimizeforED2P) {
             // ED2P: widest issue, fast fetch, out-of-order, big RUU & LSQ, 2 memports, perfect pred
             configuration[0] = 3;
-            configuration[1] = 0; //1
+            configuration[1] = 1; //1
             configuration[2] = 1;
             configuration[3] = 5;
             configuration[4] = 3;
@@ -149,7 +149,7 @@ std::string YourProposalFunction(
         } else if (optimizeforEDAP) {
             // EDAP: minimal resources, fast fetch, in-order, non-perfect pred
             configuration[0] = 0;
-            configuration[1] = 0; //1
+            configuration[1] = 1; //1
             configuration[2] = 0;
             configuration[3] = 0;
             configuration[4] = 0;
@@ -158,7 +158,7 @@ std::string YourProposalFunction(
         } else if (optimizeforED2AP) {
             // ED2AP: wide issue, fast fetch, out-of-order, 2 memports, non-perfect pred
             configuration[0] = 3;
-            configuration[1] = 0;//1
+            configuration[1] = 1;//1
             configuration[2] = 1;
             configuration[5] = 1;
             if (configuration[17] == 0)
